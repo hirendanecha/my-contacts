@@ -1,0 +1,45 @@
+@import "variables";
+@import "breakpoints";
+@import "helpers";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.btn {
+  height: 42px;
+
+  &.btn-outline-light {
+    background: #FFFFFF;
+    border: 1px solid #ECEEF5;
+    color: #8083A3;
+
+    &.active {
+      border-color: transparent;
+      background: linear-gradient(0deg, rgba(77, 76, 172, 0.1), rgba(77, 76, 172, 0.1)), #FFFFFF;
+      color: $primary;
+    }
+  }
+}
+
+.text-muted {
+  color: #8083A3 !important;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, div, span {
+  line-height: normal;
+}
+
+
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary;
+    // border: 2px solid #fff;
+  }
+}

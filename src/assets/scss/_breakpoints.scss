@@ -1,0 +1,42 @@
+// Media step breakpoint mixin based on Angular Material lib
+$breakpoints: (
+  xxs: "screen and (max-width: 320px)",
+  xs: "screen and (max-width: 575px)",
+  sm: "screen and (min-width: 576px) and (max-width: 767px)",
+  md: "screen and (min-width: 768px) and (max-width: 991px)",
+  lg: "screen and (min-width: 992px) and (max-width: 1199px)",
+  xl: "screen and (min-width: 1200px) and (max-width: 1400px)",
+  lt-sm: "screen and (max-width: 575px)",
+  lt-sm-md: "screen and (max-width: 767px)",
+  lt-md: "screen and (max-width: 991px)",
+  lt-lg: "screen and (max-width: 1199px)",
+  lt-md-lg: "screen and (max-width: 1200px)",
+  lt-xl-lg: "screen and (max-width: 1400px)",
+  lt-xl: "screen and (max-width: 1919px)",
+  gt-xs: "screen and (min-width: 576px)",
+  gt-sm: "screen and (min-width: 768px)",
+  gt-md: "screen and (min-width: 992px)",
+  gt-lg: "screen and (min-width: 1200px)",
+  gt-lg-xl: "screen and (min-width: 1400px)"
+) !default;
+
+// Re-map the breakpoints for the helper classes
+$helper-breakpoints: (
+  xs: null,
+  sm: "gt-xs",
+  md: "gt-sm",
+  lg: "gt-md",
+  xl: "gt-lg",
+);
+
+@mixin media-breakpoint($breakpointName) {
+  $mediaQuery: map-get($breakpoints, $breakpointName);
+
+  @if ($mediaQuery == null) {
+    @content;
+  } @else {
+    @media #{$mediaQuery} {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<nav id="contact-sidebar" class="d-flex flex-column justify-content-start align-items-start" >
+  <app-contact-list></app-contact-list>
+
+</nav>
+
+<div id="contact-content">
+  <ng-container *ngIf="!sidebarService.isOpen" >
+    <button
+      class="open-sidebar-btn btn btn-outline-light d-flex justify-content-center align-items-center w-40-px h-40-px"
+      (click)="sidebarService.showSidebar()"
+    >
+      <span class="material-icons-outlined w-18-px h-18-px font-size-18">menu</span>
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="sidebarService.isOpen" >
+    <div class="sidebar-backdrop d-flex d-lg-none" (click)="sidebarService.hideSidebar()" ></div>
+  </ng-container>
+
+  <router-outlet></router-outlet>
+</div>

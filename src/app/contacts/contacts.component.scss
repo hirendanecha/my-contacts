@@ -1,0 +1,69 @@
+@import './../../assets/scss/breakpoints';
+$sidebar-width: min(max(400px, 40vw), 636px);
+
+:host {
+  #contact-sidebar {
+    position: fixed;
+    height: 100%;
+    width: 0;
+    max-width: 90vw;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: #FAF9FF;
+
+    app-contact-list {
+      opacity: 0;
+      transition: 0.2s;
+    }
+  }
+
+  #contact-content {
+    transition: margin-left 0.5s;
+    padding: 62px min(max(24px, 6vw), 48px) min(max(32px, 8vw), 62px) min(max(24px, 6vw), 48px);
+
+    .open-sidebar-btn {
+      position: fixed;
+      top: min(max(12px, 4vw), 24px);
+      left: min(max(12px, 4vw), 24px);
+    }
+
+    .sidebar-backdrop {
+      position: fixed;
+      content: "";
+      top: 0px;
+      right: 0px;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      background-color: #0000003b;
+    }
+  }
+}
+
+::ng-deep {
+  body {
+    &.show-sidebar {
+      #contact-sidebar {
+        width: $sidebar-width !important;
+
+        app-contact-list {
+          transition: 4s !important;
+          opacity: 1 !important;
+        }
+      }
+
+      #contact-content {
+        margin-left: $sidebar-width !important;
+      }
+
+      @include media-breakpoint('lt-md') {
+        #contact-content {
+          margin-left: 0px !important;
+        }
+      }
+    }
+  }
+}

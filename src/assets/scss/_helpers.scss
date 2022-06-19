@@ -1,0 +1,51 @@
+// -----------------------------------------------------------------------------------------------------
+// @ Spacing helpers
+// -----------------------------------------------------------------------------------------------------
+@each $breakpoint, $materialBreakpoint in $helper-breakpoints {
+  @include media-breakpoint($materialBreakpoint) {
+    $infix: if($materialBreakpoint == null, "", "-#{$breakpoint}");
+
+    @each $prop, $abbrev in (height: h, width: w) {
+      @for $index from 0 through 180 {
+        $size: $index * 4;
+        $length: #{$size}px;
+
+        .#{$abbrev}#{$infix}-#{$size}-px {
+          #{$prop}: $length !important;
+          min-#{$prop}: $length !important;
+          max-#{$prop}: $length !important;
+        }
+      }
+
+      // Percentage
+      @for $i from 0 through 20 {
+        $i-p: 5 * $i;
+        $size-p: 5% * $i;
+
+        .#{$abbrev}#{$infix}-#{$i-p}-p {
+          #{$prop}: $size-p !important;
+        }
+      }
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------------------------------------------
+// @ Font size helpers
+// -----------------------------------------------------------------------------------------------------
+@for $index from 1 through 40 {
+  $size: $index * 2;
+
+  .font-size-#{$size} {
+    font-size: #{$size}px !important;
+  }
+}
+
+@for $index from 1 through 9 {
+  $weight: $index * 100;
+
+  .font-weight-#{$weight} {
+    font-weight: #{$weight} !important;
+  }
+}

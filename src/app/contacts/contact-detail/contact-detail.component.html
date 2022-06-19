@@ -1,0 +1,120 @@
+<div class="contact-detail d-flex flex-column justify-content-start align-items-start w-100" >
+  <ng-container *ngIf="id && contact; else noIdFound" >
+    <div class="contact-img-name d-flex justify-content-start align-items-start w-100" >
+      <img [src]="contact?.avatar" alt="Profile Image" class="w-116-px h-116-px border-radius-10">
+
+      <div class="contact-name d-flex flex-column justify-content-between align-items-between ms-4 w-100" >
+        <div class="d-flex flex-column justify-content-start align-items-start mb-3 w-100" >
+          <h6 class="font-size-20 font-weight-700 mb-0">{{contact?.name}}</h6>
+          <p class="font-size-14 font-weight-400 mb-0 text-muted">{{contact?.employee}}</p>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-start align-items-start gap-2 w-100" >
+          <button class="btn btn-primary d-flex justify-content-center align-items-center">
+            <span class="material-icons-outlined w-18-px h-18-px font-size-18">forum</span>
+            <div class="font-size-16 font-weight-500 ms-1" >Message</div>
+          </button>
+
+          <div class="d-flex justify-content-start align-items-start gap-2" >
+            <button class="btn btn-outline-light d-flex justify-content-center align-items-center w-42-px h-42-px">
+              <span class="material-icons-outlined w-18-px h-18-px font-size-18">call</span>
+            </button>
+
+            <button class="btn btn-outline-light d-flex justify-content-center align-items-center w-42-px h-42-px">
+              <span class="material-icons-outlined w-18-px h-18-px font-size-18">file_upload</span>
+            </button>
+
+            <button class="btn btn-outline-light d-flex justify-content-center align-items-center w-42-px h-42-px">
+              <span class="material-icons-outlined w-18-px h-18-px font-size-18">more_horiz</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="details d-flex flex-column justify-content-start align-items-start w-100" >
+      <div class="field d-flex justify-content-start align-items-start w-100" >
+        <h5 class="font-size-14 font-weight-400 mb-0 text-muted text-end" >Bio</h5>
+        <p class="font-size-14 font-weight-400 mb-0 w-100">
+          {{contact?.bio}}
+        </p>
+      </div>
+
+      <div class="field email-field d-flex justify-content-start align-items-start w-100" >
+        <h5 class="font-size-14 font-weight-400 mb-0 text-muted text-end" >Email</h5>
+        <div class="d-flex justify-content-between align-items-start w-100" >
+          <div class="d-flex flex-column justify-content-start align-items-start" >
+            <ng-container *ngFor="let email of contact?.emails">
+              <p class="font-size-14 font-weight-400 mb-2">
+                {{email}}
+              </p>
+            </ng-container>
+          </div>
+
+          <button class="btn btn-primary font-size-14 font-weight-700 d-flex justify-content-center align-items-center h-28-px text-muted" >Primary</button>
+        </div>
+      </div>
+
+      <div class="field d-flex justify-content-start align-items-start w-100" >
+        <h5 class="font-size-14 font-weight-400 mb-0 text-muted text-end" >Dial</h5>
+        <p class="font-size-14 font-weight-400 mb-0 w-100">
+          {{contact?.dial}}
+        </p>
+      </div>
+
+      <div class="field d-flex justify-content-start align-items-start w-100" >
+        <h5 class="font-size-14 font-weight-400 mb-0 text-muted text-end" >Meeting</h5>
+        <p class="font-size-14 font-weight-400 mb-0 w-100">
+          {{contact?.meeting}}
+        </p>
+      </div>
+
+      <div class="field d-flex justify-content-start align-items-start w-100" >
+        <h5 class="font-size-14 font-weight-400 mb-0 text-muted text-end" >Phone</h5>
+        <div class="d-flex justify-content-between align-items-start w-100" >
+          <div class="d-flex flex-column justify-content-start align-items-start" >
+            <ng-container *ngFor="let phone of contact?.phoneNumbers">
+              <p class="font-size-14 font-weight-400 mb-2">
+                {{phone}}
+              </p>
+            </ng-container>
+          </div>
+
+          <button class="btn btn-primary font-size-14 font-weight-700 d-flex justify-content-center align-items-center h-28-px text-muted" >Primary</button>
+        </div>
+      </div>
+
+      <div class="field d-flex justify-content-start align-items-center w-100" >
+        <h5 class="font-size-14 font-weight-400 mb-0 text-muted text-end" >Social</h5>
+
+        <div class="d-flex justify-content-start align-items-start gap-2 w-100" >
+          <button class="btn btn-outline-light d-flex justify-content-center align-items-center w-40-px h-40-px">
+            <img src="assets/images/icons/facebook-f-brands.svg" alt="Icon" class="w-16-px h-16-px font-size-16">
+          </button>
+
+          <button class="btn btn-outline-light d-flex justify-content-center align-items-center w-40-px h-40-px">
+            <img src="assets/images/icons/pinterest-p-brands.svg" alt="Icon" class="w-16-px h-16-px font-size-16">
+          </button>
+
+          <button class="btn btn-outline-light d-flex justify-content-center align-items-center w-40-px h-40-px">
+            <img src="assets/images/icons/twitter-brands.svg" alt="Icon" class="w-16-px h-16-px font-size-16">
+          </button>
+
+          <button class="btn btn-outline-light d-flex justify-content-center align-items-center w-40-px h-40-px">
+            <img src="assets/images/icons/linkedin-in-brands.svg" alt="Icon" class="w-16-px h-16-px font-size-16">
+          </button>
+
+          <button class="btn btn-outline-light d-flex justify-content-center align-items-center w-40-px h-40-px">
+            <img src="assets/images/icons/google-brands.svg" alt="Icon" class="w-16-px h-16-px font-size-16">
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noIdFound>
+    <div class="d-flex justify-content-center align-items-center w-100" >
+      <h3 class="font-size-24 font-weight-700 text-center" >Please Select Any Contact</h3>
+    </div>
+  </ng-template>
+</div>

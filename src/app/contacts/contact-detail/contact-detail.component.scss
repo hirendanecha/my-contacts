@@ -1,0 +1,54 @@
+@import './../../../assets/scss/breakpoints';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .contact-detail {
+    max-width: 650px;
+
+    .contact-img-name {
+      transition: ease-in-out 0.3s;
+      padding-left: 86px;
+
+      .contact-name {
+        height: 116px;
+      }
+    }
+
+    .details {
+      padding-top: min(max(24px, 5vw), 40px);
+
+      .field {
+        padding-top: min(max(16px, 4vw), 28px);
+
+        &.email-field {
+          padding-top: min(max(24px, 6vw), 50px);
+        }
+
+        h5 {
+          width: 86px;
+          min-width: 86px;
+          padding-right: min(max(24px, 5vw), 34px);
+        }
+
+        .btn-primary {
+          background: #F3F4F9;
+          border-radius: 8px;
+          border: 0px;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint('lt-sm') {
+  :host {
+    .contact-detail {
+      .contact-img-name {
+        padding-left: 0px !important;
+      }
+    }
+  }
+}
